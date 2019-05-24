@@ -16,9 +16,9 @@ class AnalystRating extends React.Component {
     return (
       <div className="Components">
         <p className='topic'>Analyst Ratings</p>
-        <div className='line'></div>
-        <AnalystChart ratings={ratings}/>
-        <AnalystSummary/>
+        <div className='line' />
+        <AnalystChart ratings={ratings} />
+        <AnalystSummary />
       </div>
     );
   }

@@ -7,5 +7,6 @@ import './assets/search.css';
 import './assets/ratings.css';
 import './assets/price.css';
 import './assets/earnings.css';
+// import './assets/main.css';
 
 ReactDOM.render(<App />, document.getElementById('app'));
