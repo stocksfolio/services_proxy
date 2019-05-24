@@ -9,4 +9,4 @@ import './assets/price.css';
 import './assets/earnings.css';
 // import './assets/main.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<div>Hello</div>, document.getElementById('app'));
