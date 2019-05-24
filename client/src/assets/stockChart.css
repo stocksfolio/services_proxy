@@ -98,11 +98,11 @@ width: 676px;
 }
 
 #main-column {
-  flex-basis: 66%
+  flex-basis: 66%;
 }
 
 #minor-column {
-  flex-basis: 27%
+  flex-basis: 27%;
 }
 
 #stock-chart {

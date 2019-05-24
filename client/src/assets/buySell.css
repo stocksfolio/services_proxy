@@ -5,12 +5,16 @@
 }
 
 body {
-  margin: 10px 0px 0px 10px;
-  font-size: 13px;
+  /* margin: 10px 0px 0px 10px;
+  font-size: 13px; */
+}
+
+#buy-sell {
+  position: fixed;
 }
 
 .buySellForm {
-  margin-top: 80px;
+  margin-top: 50px;
   background-color: white;
   font-family: 'DINProRegular';
   width: 275px;
