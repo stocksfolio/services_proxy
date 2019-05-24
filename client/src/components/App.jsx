@@ -4,7 +4,7 @@ import BuySell from './buy_sell/BuySell';
 import StockChart from './stock_chart/StockChart';
 import Search from './search/Search';
 import Earnings from './earnings/earnings';
-import Ratings from './ratings/AnalystChart';
+import Ratings from './ratings/AnalystRating';
 import Price from './average_price_paid/averagePrice';
 
 class Index extends React.Component {
