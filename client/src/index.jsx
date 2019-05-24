@@ -1,18 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import css from './assets/main.css';
+import './assets/stockChart.css';
+import './assets/buySell.css';
+import './assets/search.css';
+import './assets/ratings.css';
+import './assets/price.css';
+import './assets/earnings.css';
 
-
-const AppRouter = () => (
-  <Router>
-    <Switch>
-      <Route path='/:stockId' component={App} />
-      <Route path='/' component={App} />
-    </Switch>
-  </Router>
-)
-
-// window.AppRouter = App;
-ReactDOM.render(<AppRouter />, document.getElementById('stock-chart'));
+ReactDOM.render(<App />, document.getElementById('app'));

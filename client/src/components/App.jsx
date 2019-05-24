@@ -1,83 +1,88 @@
 import React from 'react';
 import axios from 'axios';
-import LineChartContainer from './LineChartContainer';
-import TimeFilter from './TimeFilter';
-import StockInfo from './StockInfo';
-import CompanyInfo from './CompanyInfo';
-import TagContainer from './TagContainer';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// import API from './api';
+import BuySell from './buy_sell/BuySell';
+import StockChart from './stock_chart/StockChart';
+import Search from './search/Search';
+import Earnings from './earnings/earnings';
+import Ratings from './ratings/AnalystChart';
+import Price from './average_price_paid/averagePrice';
 
-class App extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      chartData: null,
-      stockInfo: null,
-      averageStock: null,
-      changePercent: null,
-      selectedFilter: 'day',
-      currentPrice: null
-    };
+      stock: null,
+      account: null
+    }
   }
-  
 
   componentDidMount() {
-    const { stockId } = this.props.match ? this.props.match.params : { stockId: null };
-    axios.get((stockId && `/api/${stockId}`) || `/api/TSLA`)
-    .then((response) => {
-      this.setState({
-        stockInfo: response.data[0].stockInfo,
-        chartData: response.data[0].stockData,
-        averageStock: response.data[0].averageStock,
-        changePercent: response.data[0].changePercent
-      })
-    })
+    this.getStockData();
+    this.getAccountData();
   }
 
-  changeSelectedFilter(e) {
-    this.setState({
-      selectedFilter: e.target.id
-    })
+  getStockData() {
+    let ticker = window.location.pathname.split('/')[1];
+    ticker = ticker ? ticker : 'TSLA';
+    axios.get(`/api/stocks/${ticker}`)
+      .then(res => res.data)
+      .then((result) => {
+        this.setState({
+          stock: result,
+        });
+      });
   }
 
-  changeCurrentPrice(activePoint) {
-    this.setState({
-      currentPrice: activePoint ? activePoint.price : null
-    })
+  getAccountData() {
+    axios.get('/api/accounts/2QW30682')
+      .then(res => res.data)
+      .then((result) => {
+        this.setState({
+          account: result,
+        });
+      });
   }
 
   render() {
-    const { chartData, stockInfo, averageStock, changePercent, selectedFilter, currentPrice } = this.state;
+    const { stock, account } = this.state;
     return (
-      <div id="stock-chart-container">
-        {stockInfo && (<TagContainer tags={stockInfo.relatedTags} />)}
+      <React.Fragment>
+        <div id="header">
+          <div id="search">
+            <Search />
+          </div>
+        </div>
+      {(stock && account) ? 
+        <div id="main-container">
+          <div id="main-column">
+            <div id="stock-chart">
+              <StockChart />
+            </div>
+            <div id="news"></div>
+            <div id="averagePrice">
+              <Price />
+            </div>
+            <div id="ratings">
+              <Ratings />
+            </div>
+            <div id="earnings">
+              <Earnings />
+            </div>
+          </div>
 
-        {stockInfo && (
-        <CompanyInfo 
-          companyName={stockInfo.stockCompany} 
-          noOfOwners={stockInfo.noOfOwners}
-          recommendation={stockInfo.recommendationPercent} />
-        )}
-
-        {stockInfo && (
-        <StockInfo 
-        averageStock={averageStock}
-        changePercent={changePercent}
-        currentPrice={currentPrice} />)}
-
-        {chartData && (
-        <LineChartContainer 
-        chart={chartData} 
-        selectedChart={selectedFilter} 
-        changePrice={price => this.changeCurrentPrice(price)} />
-        )}
-
-        <TimeFilter changeSelectedFilter={e => this.changeSelectedFilter(e)} />
-      </div>
-    );
+          <div id="minor-column">
+            <div id="buy-sell">
+              <BuySell />
+            </div>
+          </div>
+        </div> : <div className="error_message">
+          <h1 className="error_big">This Stock Data Does Not Exist!</h1>
+          <h3 className="error_small">The data for this company does not exist as part of the 100 companies in the database</h3>
+        </div>}
+      </React.Fragment>
+    )
   }
 }
 
-export default App;
+export default Index;
