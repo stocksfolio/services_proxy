@@ -26,6 +26,7 @@ build/
 # Examples of code from Hack Reactor
 example/
 
+bundle.js
 
 aws-keys.json
 
