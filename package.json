@@ -12,11 +12,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "node-start": "webpack --mode production && grunt deploy & node database/seed.js  & node server/index.js",
     "start:server": "nodemon server/index.js",
-    "build": "webpack --mode development --watch",
     "db:setup": "node database/database-mysqldb/seed.js",
-    "seed": "node database/Chart/seed.js",
     "deploy": "grunt deploy",
     "test": "jest --verbose",
     "test:watch": "jest --watch",
