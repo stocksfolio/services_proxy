@@ -1,0 +1,131 @@
+/*
+* === CUSTOM FONTS ==========================================
+*/
+
+@font-face {
+  font-family: DIN Pro;
+  src: url(./fonts/FF_DIN_Pro_Regular_Italic.otf);
+}
+
+@font-face {
+  font-family: DIN Pro;
+  src: url(./fonts/FF_DIN_Pro_Bold_Italic.otf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: DIN Pro;
+  src: url(./fonts/FF_DIN_Pro_Black_Italic.otf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: DIN Pro;
+  src: url(./fonts/FF_DIN_Pro_Light_Italic.otf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: DIN Pro;
+  src: url(./fonts/FF_DIN_Pro_Medium_Italic.otf);
+  font-weight: 500;
+}
+
+
+/*
+* === GLOBAL CONTAINER ==========================================
+*/
+
+#search-container {
+  height: 64px;
+  display: flex;
+  /* border: 1px solid black; */
+  margin-right: 50px;
+  align-items: center;
+  font-family: DIN Pro;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.25px;
+  justify-content: space-between;
+}
+
+#search-bar-container {
+  display: flex;
+  align-items: center;
+  flex: 5;
+  font-size: 13px;
+}
+
+#search-bar-border {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  width: 461px;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#search-bar-border:hover {
+  border: none;
+  box-shadow: 0 10px 15px rgba(114, 114, 114, 0.3), 0 10px 5px rgba(114, 114, 114, 0.22);
+}
+
+#search-icon {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+#search-bar {
+  border: none;
+  height: 30px;
+  width: 400px;
+  font-size: 13px;
+}
+
+#search-bar:focus {
+  outline:none;
+}
+
+.search-svg {
+  margin: 0 10px;
+}
+
+#search-bar::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgb(122, 122, 122);
+  font-family: DIN Pro;
+  font-weight: 500;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex: 3;
+  justify-content: flex-end;
+}
+
+li {
+  display: inline;
+  margin: 0 15px;
+  font-weight: 700;
+}
+
+.svg-icon {
+  width: 3em;
+  height: 3em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #0cbe42;
+}
+
+.svg-icon circle {
+  stroke: #0cbe42;
+  stroke-width: 1;
+}
