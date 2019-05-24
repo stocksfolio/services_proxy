@@ -12,14 +12,14 @@ const Ratings = require('../database/Analyst/index');
 // const controller = require('../database/controller');
 
 const app = express();
-const port = 2468;
+const port = process.env.PORT || 2468;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/../public/dist')));
 
-app.listen(process.env.PORT || port, () => {
+app.listen(port, () => {
   console.log(`Server is now listening on port: ${port}`)
 })
 
