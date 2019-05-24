@@ -53,33 +53,36 @@ class Index extends React.Component {
             <Search />
           </div>
         </div>
-      {(stock && account) ? 
-        <div id="main-container">
-          <div id="main-column">
-            <div id="stock-chart">
-              <StockChart />
+        {(stock && account) ? (
+          <div id="main-container">
+            <div id="main-column">
+              <div id="stock-chart">
+                <StockChart />
+              </div>
+              <div id="news" />
+              <div id="averagePrice">
+                <Price />
+              </div>
+              <div id="ratings">
+                <Ratings />
+              </div>
+              <div id="earnings">
+                <Earnings />
+              </div>
             </div>
-            <div id="news"></div>
-            <div id="averagePrice">
-              <Price />
-            </div>
-            <div id="ratings">
-              <Ratings />
-            </div>
-            <div id="earnings">
-              <Earnings />
-            </div>
-          </div>
 
-          <div id="minor-column">
-            <div id="buy-sell">
-              <BuySell />
+            <div id="minor-column">
+              <div id="buy-sell">
+                <BuySell />
+              </div>
             </div>
           </div>
-        </div> : <div className="error_message">
-          <h1 className="error_big">This Stock Data Does Not Exist!</h1>
-          <h3 className="error_small">The data for this company does not exist as part of the 100 companies in the database</h3>
-        </div>}
+): (
+  <div className="error_message">
+    <h1 className="error_big">This Stock Data Does Not Exist!</h1>
+    <h3 className="error_small">The data for this company does not exist as part of the 100 companies in the database</h3>
+  </div>
+)}
       </React.Fragment>
     )
   }
