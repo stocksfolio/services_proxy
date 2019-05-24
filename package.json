@@ -13,6 +13,7 @@
   "scripts": {
     "start": "node server/index.js",
     "start:server": "nodemon server/index.js",
+    "build": "webpack --mode production --watch",
     "db:setup": "node database/database-mysqldb/seed.js",
     "deploy": "grunt deploy",
     "test": "jest --verbose",
