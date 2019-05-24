@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/../public/dist')));
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Server is now listening on port: ${port}`)
 })
 
