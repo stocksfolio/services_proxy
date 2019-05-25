@@ -1,6 +1,6 @@
 import React from 'react';
-import Chart from './chart';
 import $ from 'jquery';
+import Chart from './chart';
 
 let path = window.location.pathname;
 
@@ -73,35 +73,50 @@ class AveragePrice extends React.Component {
       compare = `${Math.abs(percentage)}% Lower`;
     }
     return (
-  <div className="Components">
-   <p className='topic'>Price Paid on Robinhood</p>
-   <div className='line'></div>
-   <div id = 'compare' style={{ left: compareLoc }}>
-    <div style={{ position: 'absolute'}}>
-      <p id = 'compare'>{compare}</p>
-      <p id = 'rightNow'>Right Now</p>
-    </div>
-   </div>
-   <div id = 'chart' >
-    {allData.map(priceData => <Chart key = {priceData[3]} priceData = {priceData} />)}
-   </div>
-   <div className='bottomLine'>
-    <span id = 'bottomFrontLine' style={{ width: curPriceDis > 670 ? 670 : curPriceDis }}></span>
-    <span id = 'circle' ></span>
-    <span id = 'bottomRareLine' style={{ width: 670 - curPriceDis }}></span>
-   </div>
+      <div className="Components">
+        <p className='topic'>Price Paid in Past 52 Weeks</p>
+        <div className='line' />
+        <div id='compare' style={{ left: compareLoc }}>
+          <div style={{ position: 'absolute'}}>
+            <p id='compare'>{compare}</p>
+            <p id='rightNow'>Right Now</p>
+          </div>
+        </div>
+        <div id='chart'>
+          {allData.map(priceData => <Chart key={priceData[3]} priceData={priceData} />)}
+        </div>
+        <div className='bottomLine'>
+          <span id='bottomFrontLine' style={{ width: curPriceDis > 670 ? 670 : curPriceDis }} />
+          <span id='circle' />
+          <span id='bottomRareLine' style={{ width: 670 - curPriceDis }} />
+        </div>
 
-    <div style={{ display: 'inline-block', width: '670px' }}>
-      <div id = 'lowest'>52 Week Low
-      <p id='lowest'>${lowest}</p></div>
-      <div id = 'averagePricePaid' style={{ marginLeft: avgPriceDis ? avgPriceDis : 0 }}>
-        <p className='averagePricePaid'>Average Price Paid</p>
-        <p className='averagePricePaid' id='averagePricePaid'>${averagePrice}</p>
+        <div style={{ display: 'inline-block', width: '670px' }}>
+          <div id='lowest'>
+52 Week Low
+            <p id='lowest'>
+$
+              {lowest}
+            </p>
+
+          </div>
+          <div id='averagePricePaid' style={{ marginLeft: avgPriceDis ? avgPriceDis : 0 }}>
+            <p className='averagePricePaid'>Average Price Paid</p>
+            <p className='averagePricePaid' id='averagePricePaid'>
+$
+              {averagePrice}
+            </p>
+          </div>
+          <div id='highest'>
+52 Week High
+            <p id='highest'>
+$
+              {highest}
+            </p>
+
+          </div>
+        </div>
       </div>
-      <div id = 'highest'>52 Week High
-      <p id='highest'>${highest}</p></div>
-    </div>
-  </div>
     );
   }
 }
