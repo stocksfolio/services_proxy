@@ -13,7 +13,6 @@ class AveragePrice extends React.Component {
   }
 
   componentDidMount() {
-    path = '/001';
     $.get(`/api/price${path}`, (stockData) => {
       const priceData = [];
       stockData.map(stock => priceData.push(stock.price));

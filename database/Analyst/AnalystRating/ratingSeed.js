@@ -7,6 +7,7 @@ const companyData = require('../stockList.js');
 const sampleRatings = [];
 
 for (const company of companyData) {
+  const { ticker } = company;
   const companyName = company.company;
   const ratingsNumber = Math.floor(Math.random() * 80 + 10);
   for (let ratings = 0; ratings < ratingsNumber; ratings += 1) {
@@ -16,6 +17,7 @@ for (const company of companyData) {
       company: companyName,
       rating,
       id: company.id,
+      ticker,
     });
   }
 }

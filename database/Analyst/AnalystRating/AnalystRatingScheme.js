@@ -6,6 +6,7 @@ const ratingsSchema = new mongoose.Schema({
   id: String,
   company: String,
   rating: String,
+  ticker: String,
 });
 
 const Rating = mongoose.model('Rating', ratingsSchema);

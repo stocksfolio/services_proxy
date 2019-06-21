@@ -17,7 +17,6 @@ class AnalystChart extends React.Component {
   }
 
   componentDidMount() {
-    path = '/001';
     $.get(`/api/ratings${path}`, (Data) => {
       this.setState({
         ratings: Data,
@@ -32,7 +31,7 @@ class AnalystChart extends React.Component {
     let buyPercent = 0;
     let holdPercent = 0;
     let sellPercent = 0;
-    const ratings = this.state.ratings;
+    const { ratings } = this.state;
 
     if (ratings.length > 0) {
       total = ratings.length;
@@ -45,37 +44,37 @@ class AnalystChart extends React.Component {
 
     return (
       <div>
-       <div id="percentageChart">
-        <p id="percentageOfRatings">
-          <svg width="15" height="15" style={{ margin: '0 5 0 0' }} viewBox="0 0 20 20"><g fill="#23CE99" transform="translate(-4 -4)"><path id="tag-a" d="M20.99975,8 C20.44775,8 19.99975,7.552 19.99975,7 C19.99975,6.448 20.44775,6 20.99975,6 C21.55175,6 21.99975,6.448 21.99975,7 C21.99975,7.552 21.55175,8 20.99975,8 M21.99975,4 L14.82775,4 C14.29775,4 13.78875,4.21 13.41375,4.585 L4.58575,13.414 C3.80475,14.195 3.80475,15.461 4.58575,16.242 L11.75675,23.414 C12.53775,24.195 13.80475,24.195 14.58575,23.414 L23.41375,14.586 C23.78875,14.211 23.99975,13.702 23.99975,13.172 L23.99975,6 C23.99975,4.896 23.10375,4 21.99975,4" /></g></svg>
-          { buyPercent }
+        <div id="percentageChart">
+          <p id="percentageOfRatings">
+            <svg width="15" height="15" style={{ margin: '0 5 0 0' }} viewBox="0 0 20 20"><g fill="#23CE99" transform="translate(-4 -4)"><path id="tag-a" d="M20.99975,8 C20.44775,8 19.99975,7.552 19.99975,7 C19.99975,6.448 20.44775,6 20.99975,6 C21.55175,6 21.99975,6.448 21.99975,7 C21.99975,7.552 21.55175,8 20.99975,8 M21.99975,4 L14.82775,4 C14.29775,4 13.78875,4.21 13.41375,4.585 L4.58575,13.414 C3.80475,14.195 3.80475,15.461 4.58575,16.242 L11.75675,23.414 C12.53775,24.195 13.80475,24.195 14.58575,23.414 L23.41375,14.586 C23.78875,14.211 23.99975,13.702 23.99975,13.172 L23.99975,6 C23.99975,4.896 23.10375,4 21.99975,4" /></g></svg>
+            { buyPercent }
 %
 
-        </p>
-        <p id="numberOfRatings">
-{' '}
+          </p>
+          <p id="numberOfRatings">
+            {' '}
 of
-{' '}
-{total}
-{' '}
+            {' '}
+            {total}
+            {' '}
 ratings
-</p>
+          </p>
+        </div>
+        <div id="analystSuggestions">
+          <div id='buy'>
+            <div className='analystSuggestion'>Buy </div>
+            <PercentageLine percentage={buyPercent} class="buyLineFront" />
+          </div>
+          <div id="analystSuggestion">
+            <div className='analystSuggestion'>Hold</div>
+            <PercentageLine percentage={holdPercent} class="analystSuggestionLineFront" />
+          </div>
+          <div id="analystSuggestion">
+            <div className='analystSuggestion'>Sell</div>
+            <PercentageLine percentage={sellPercent} class="analystSuggestionLineFront" />
+          </div>
+        </div>
       </div>
-       <div id="analystSuggestions">
-        <div id='buy'>
-          <div className='analystSuggestion'>Buy </div>
-          <PercentageLine percentage={buyPercent} class="buyLineFront" />
-        </div>
-        <div id="analystSuggestion">
-          <div className='analystSuggestion'>Hold</div>
-          <PercentageLine percentage={holdPercent} class="analystSuggestionLineFront" />
-        </div>
-        <div id="analystSuggestion">
-          <div className='analystSuggestion'>Sell</div>
-          <PercentageLine percentage={sellPercent} class="analystSuggestionLineFront" />
-        </div>
-      </div>
-     </div>
     );
   }
 }

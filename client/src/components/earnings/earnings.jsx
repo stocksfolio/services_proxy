@@ -5,9 +5,6 @@ import $ from 'jquery';
 import EarningsChartFrame from './earningsChartFrame.jsx';
 import EarningBottomBar from './earningBottomBar.jsx';
 
-let path = window.location.pathname ? window.location.pathname : 1;
-
-window.location.pathname
 class Earnings extends React.Component {
   constructor(props) {
     super(props);
@@ -17,8 +14,8 @@ class Earnings extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(path);
-    path = '/001';
+    // path = '/001';
+    let path = window.location.pathname ? window.location.pathname : "TSLA";
     $.get(`/api/earnings${path}`, (Data) => {
     // $.get('//front-end-capstone.herokuapp.com/data/earnings', (Data) => {
       this.setState({

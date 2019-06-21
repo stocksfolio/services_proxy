@@ -15,8 +15,10 @@ mongoose.connect(mongoUri, { useNewUrlParser: true },
   });
 const db = mongoose.connection;
 
-const getPaidPrice = (id, callback) => {
-  const query = { id };
+const getPaidPrice = (ticker, callback) => {
+  ticker = ticker ? ticker : "TSLA";
+  console.log(ticker);
+  const query = { ticker };
   Stock.find(query, (err, data) => {
     if (err) callback(err);
     callback(data);
