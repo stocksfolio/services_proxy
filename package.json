@@ -5,7 +5,7 @@
   },
   "version": "1.0.0",
   "description": "The stock chart on Robinhood",
-  "author": "Muhammad Shehu",
+  "author": "Muhammad Shehu && Gary Guan",
   "license": "MIT",
   "engines": {
     "node": ">=8.13.0"
