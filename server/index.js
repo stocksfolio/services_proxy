@@ -84,20 +84,21 @@ app.get('/api/accounts/:account_number', (req, res) => {
 //   })
 // });
 
-app.get('/api/price/:id', (req, res) => {
-  Price.getPaidPrice(req.params.id, (data) => {
+app.get('/api/price/:ticker', (req, res) => {
+  console.log(req.params);
+  Price.getPaidPrice(req.params.ticker, (data) => {
     res.status(200).json(data)
   })
 });
 
-app.get('/api/ratings/:id', (req, res) => {
-  Ratings.getRating(req.params.id, (data) => {
+app.get('/api/ratings/:ticker', (req, res) => {
+  Ratings.getRating(req.params.ticker, (data) => {
     res.status(200).json(data)
   })
 });
 
-app.get('/api/earnings/:id', (req, res) => {
-  Earnings.getEarning(req.params.id, (data) => {
+app.get('/api/earnings/:ticker', (req, res) => {
+  Earnings.getEarning(req.params.ticker, (data) => {
     res.status(200).json(data)
   })
 });

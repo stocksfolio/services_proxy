@@ -9,6 +9,7 @@ const earningSchema = new mongoose.Schema({
   estimatedEarning: Number,
   quarter: String,
   quarterNumber: Number,
+  ticker: String,
 });
 
 const Earnings = mongoose.model('Earning', earningSchema);

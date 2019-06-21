@@ -15,10 +15,9 @@ mongoose.connect(mongoUri, { useNewUrlParser: true },
   });
 const db = mongoose.connection;
 
-const getEarning = (id, callback) => {
-  console.log(id);
-  id = id ? id : "001";
-  const query = { id };
+const getEarning = (ticker, callback) => {
+  ticker = ticker ? ticker : "TSLA";
+  const query = { ticker };
   Earnings.find(query, (err, data) => {
     if (err) callback(err);
     callback(data);

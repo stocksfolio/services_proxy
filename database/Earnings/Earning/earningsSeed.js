@@ -9,6 +9,7 @@ const EPSdate = ['Q4 2017', 'Q1 2018', 'Q2 2018', 'Q3 2018', 'Q4 2018', 'Q1 2019
 
 for (const company of companyData) {
   const companyName = company.company;
+  const ticker = company.ticker;
   let actualEarning = Math.random() * 7;
   let estimatedEarning = actualEarning;
   let quarterNumber = 0;
@@ -30,6 +31,7 @@ for (const company of companyData) {
       quarter,
       id: company.id,
       quarterNumber,
+      ticker
     });
     quarterNumber += 1;
   }

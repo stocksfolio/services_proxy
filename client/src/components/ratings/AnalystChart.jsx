@@ -17,7 +17,6 @@ class AnalystChart extends React.Component {
   }
 
   componentDidMount() {
-    path = '/001';
     $.get(`/api/ratings${path}`, (Data) => {
       this.setState({
         ratings: Data,
