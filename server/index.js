@@ -63,35 +63,14 @@ app.get('/api/accounts/:account_number', (req, res) => {
     });
 });
 
-// app.get('/api/price', (req, res) => {
-//   // set Default data equal to 001
-//   Price.getPaidPrice("001", (data) => {
-//     res.status(200).json(data)
-//   })
-// });
-
-// app.get('/api/ratings', (req, res) => {
-//   // set Default data equal to 001
-//   Ratings.getRating("001", (data) => {
-//     res.status(200).json(data)
-//   })
-// });
-
-// app.get('/api/earnings', (req, res) => {
-//   // set Default data equal to 001
-//   Earnings.getEarning("001", (data) => {
-//     res.status(200).json(data)
-//   })
-// });
-
 app.get('/api/price/:ticker', (req, res) => {
-  console.log(req.params);
   Price.getPaidPrice(req.params.ticker, (data) => {
     res.status(200).json(data)
   })
 });
 
 app.get('/api/ratings/:ticker', (req, res) => {
+  console.log("here1",req.params)
   Ratings.getRating(req.params.ticker, (data) => {
     res.status(200).json(data)
   })

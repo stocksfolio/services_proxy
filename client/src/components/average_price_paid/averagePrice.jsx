@@ -3,6 +3,7 @@ import $ from 'jquery';
 import Chart from './chart';
 
 let path = window.location.pathname;
+if(path === "/") path = "/TSLA";
 
 class AveragePrice extends React.Component {
   constructor() {

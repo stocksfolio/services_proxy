@@ -14,8 +14,8 @@ class Earnings extends React.Component {
   }
 
   componentDidMount() {
-    // path = '/001';
-    let path = window.location.pathname ? window.location.pathname : "TSLA";
+    let path = window.location.pathname;
+    if(path === "/") path = "/TSLA";
     $.get(`/api/earnings${path}`, (Data) => {
     // $.get('//front-end-capstone.herokuapp.com/data/earnings', (Data) => {
       this.setState({

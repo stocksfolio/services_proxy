@@ -16,8 +16,6 @@ mongoose.connect(mongoUri, { useNewUrlParser: true },
 const db = mongoose.connection;
 
 const getRating = (ticker, callback) => {
-  ticker = ticker ? ticker : "TSLA";
-  console.log(ticker);
 
   const query = { ticker };
   Rating.find(query, (err, data) => {

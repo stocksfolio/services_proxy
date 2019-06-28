@@ -7,6 +7,7 @@ import $ from 'jquery';
 import PercentageLine from './PercentageLine.jsx';
 
 let path = window.location.pathname;
+if(path === "/") path = "/TSLA";
 
 class AnalystChart extends React.Component {
   constructor(props) {
