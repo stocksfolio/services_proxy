@@ -32,7 +32,7 @@
     "jest-environment-node": "^24.5.0",
     "jest-to-match-shape-of": "^1.2.0",
     "jquery": "^3.3.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "mongodb": "^3.2.2",
     "mongoose": "^5.4.20",
     "path": "^0.12.7",
